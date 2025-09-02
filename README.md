@@ -20,3 +20,5 @@
 
 ## 📸 Screenshot
 ![image alt](https://github.com/Himagirisiddesh/tic-tac-toe-game/blob/main/Screenshot%202025-09-02%20141004.png?raw=true)
+![image alt](https://github.com/user-attachments/assets/c1a55db5-a987-4c83-ad8f-42cf1f7b1159 )
+
