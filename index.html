@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Tic-Tac-Toe | Professional Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle-container">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="title">Premium Tic-Tac-Toe</h1>
+            <p class="subtitle">Experience the game at its finest</p>
+        </header>
+
+        <!-- Mode Selection -->
+        <div id="modeSelection" class="mode-selection">
+            <h2>Choose Game Mode</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" data-mode="pvp">
+                    <span class="mode-icon">👥</span>
+                    <span>Player vs Player</span>
+                </button>
+                <button class="mode-btn" data-mode="pva">
+                    <span class="mode-icon">🤖</span>
+                    <span>Player vs AI</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- AI Difficulty Selection -->
+        <div id="difficultySelection" class="difficulty-selection" style="display: none;">
+            <h2>Choose Difficulty</h2>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn" data-difficulty="easy">
+                    <span>Easy</span>
+                </button>
+                <button class="difficulty-btn" data-difficulty="medium">
+                    <span>Medium</span>
+                </button>
+                <button class="difficulty-btn" data-difficulty="hard">
+                    <span>Hard (Unbeatable)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Board Section -->
+        <div id="gameBoard" class="game-section" style="display: none;">
+            <!-- Score Display -->
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="score-label">Player X</span>
+                    <span class="score-value" id="scoreX">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">Draws</span>
+                    <span class="score-value" id="scoreDraw">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label" id="scoreOLabel">Player O</span>
+                    <span class="score-value" id="scoreO">0</span>
+                </div>
+            </div>
+
+            <!-- Turn Indicator -->
+            <div class="turn-indicator">
+                <span id="turnText" class="turn-text">Player X's Turn</span>
+                <div class="turn-avatar" id="turnAvatar">X</div>
+            </div>
+
+            <!-- Game Grid -->
+            <div class="game-grid" id="gameGrid">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+
+            <!-- Game Status -->
+            <div class="game-status" id="gameStatus" style="display: none;">
+                <div class="status-content">
+                    <h2 id="statusTitle" class="status-title">Game Over</h2>
+                    <p id="statusMessage" class="status-message">You won!</p>
+                    <button class="restart-btn" id="restartGameBtn">Play Again</button>
+                </div>
+            </div>
+
+            <!-- AI Thinking Indicator -->
+            <div class="ai-thinking" id="aiThinking" style="display: none;">
+                <div class="thinking-spinner"></div>
+                <p>AI is thinking...</p>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="game-controls">
+                <button class="control-btn primary-btn" id="restartBtn">New Game</button>
+                <button class="control-btn secondary-btn" id="resetScoreBtn">Reset Score</button>
+                <button class="control-btn secondary-btn" id="backBtn">Back to Menu</button>
+            </div>
+        </div>
+
+        <!-- Game History -->
+        <div id="gameHistory" class="game-history">
+            <h3>Last 5 Games</h3>
+            <div id="historyList" class="history-list"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Audio Elements -->
+    <audio id="clickSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAAA=" type="audio/wav">
+    </audio>
+    <audio id="winSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAAA=" type="audio/wav">
+    </audio>
+    <audio id="drawSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAAA=" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
