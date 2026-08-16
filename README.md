@@ -1,371 +1,195 @@
-# 🎮 Premium Tic-Tac-Toe Game
+<div align="center">
 
-A professional-grade, fully-featured Tic-Tac-Toe web application built with vanilla HTML, CSS, and JavaScript. Perfect for portfolios and production use.
+# 🎮 Premium Tic-Tac-Toe
+
+**A professional-grade Tic-Tac-Toe web app built with vanilla HTML, CSS, and JavaScript.**
+
+Player vs. Player, or Player vs. an unbeatable Minimax AI — with glassmorphism UI, dark/light themes, score tracking, and zero dependencies.
+
+[![HTML5](https://img.shields.io/badge/HTML5-semantic-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-animations-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![No Dependencies](https://img.shields.io/badge/Dependencies-none-brightgreen)](#-quick-start)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-success)](#)
+
+</div>
+
+---
 
 ## 🌟 Features
 
-### 🎯 Gameplay Modes
-- **Player vs Player (PvP)**: Play against another player on the same device
-- **Player vs AI (PvA)**: Challenge the computer with three difficulty levels:
-  - **Easy**: Random moves (for beginners)
-  - **Medium**: 50% intelligent, 50% random (balanced gameplay)
-  - **Hard**: Minimax algorithm (unbeatable AI)
+### 🎯 Gameplay
 
-### 🧠 Advanced AI
-- **Minimax Algorithm**: Implements the minimax with depth-first search
-  - Explores all possible game states
-  - Calculates optimal moves for both players
-  - Unbeatable in Hard mode
-  - Fast decision-making (< 1 second)
+- **Player vs. Player** — two players, one device
+- **Player vs. AI** with three difficulty levels:
+  | Difficulty | Behavior |
+  |---|---|
+  | Easy | Random moves |
+  | Medium | 50% intelligent, 50% random |
+  | Hard | Minimax algorithm — unbeatable |
 
-### 📊 Game Features
-- ✅ Score tracking (Player X, Player O, Draws)
-- ✅ Turn indicator with visual feedback
-- ✅ Winning combination highlight with animation
-- ✅ Draw condition detection
-- ✅ Restart game button
-- ✅ Reset scores button
-- ✅ Game history (last 5 games with timestamps)
-- ✅ Prevent clicks on filled cells
-- ✅ Disable clicking during AI thinking
+### 🧠 AI
 
-### 🎨 UI/UX Design
-- **Modern Glassmorphism Style**: Elegant, transparent components
-- **Responsive Design**: Mobile, tablet, and desktop friendly
-- **Dark/Light Mode**: Toggle between themes with automatic persistence
-- **Smooth Animations**: 
-  - Cell hover effects
-  - Win animations with scale and rotation
-  - Winning line highlight
-  - Turn indicator pulse
-  - Smooth transitions throughout
-- **Professional Typography**: Clean, readable fonts with proper hierarchy
-- **Accessibility**: Keyboard support, focus indicators, semantic HTML
+Implements the **Minimax algorithm** with full game-tree search: explores every possible outcome, scores terminal states, and picks the optimal move every time. Unbeatable on Hard, with decisions in under a second.
 
-### 🔊 User Experience
-- **Sound Effects**: Click, win, and draw sounds (can be toggled)
-- **Toast Notifications**: Game status and mode selection feedback
-- **AI Thinking Indicator**: Loading animation while AI decides
-- **Game Status Modal**: Displays game results with restart button
-- **Responsive Buttons**: Hover, active, and focus states
+### 📊 Game Mechanics
 
-### 💾 Data Persistence
-- **LocalStorage Integration**: Scores persist across sessions
-- **Game History**: Last 20 games stored automatically
-- **Theme Preference**: User's dark/light mode choice saved
-- **Auto-save**: All data saved automatically
+Score tracking (X / O / Draws) · turn indicator · animated win-line highlighting · draw detection · restart & score-reset controls · a 5-game history log · guards against clicking filled cells or interrupting the AI's turn.
 
-### ⭐ Bonus Features
-- 🌓 Dark/Light mode toggle
-- 📱 Fully mobile-responsive (tested on all screen sizes)
-- 🎨 Beautiful gradient effects and shadows
-- ⌨️ Keyboard support (ESC to go back to menu)
-- 🎯 Zero external dependencies (vanilla JavaScript)
-- 📈 Game statistics and history tracking
-- 🎭 Two distinct visual themes
+### 🎨 UI/UX
+
+Glassmorphism design, fully responsive (mobile/tablet/desktop), dark/light theme with persistence, smooth hover and win animations, keyboard support, and semantic, accessible HTML.
+
+### 🔊 Experience
+
+Toggleable sound effects, toast notifications, an "AI thinking" indicator, and a game-result modal.
+
+### 💾 Persistence
+
+Everything — scores, the last 20 games, and theme preference — is saved automatically via `localStorage`.
 
 ## 🚀 Quick Start
 
-### Installation
-1. Download all three files: `index.html`, `style.css`, `script.js`
-2. Place them in the same directory
-3. Open `index.html` in any modern web browser
-4. No server or build process required!
+```bash
+# 1. Download index.html, style.css, and script.js
+# 2. Keep them in the same directory
+# 3. Open index.html in any modern browser
+```
 
-### Usage
-1. **Select Game Mode**: Choose "Player vs Player" or "Player vs AI"
-2. **Choose Difficulty** (for AI mode): Select Easy, Medium, or Hard
-3. **Play**: Click on empty cells to place your mark
-4. **Game Over**: Result will be displayed with restart option
-5. **View Stats**: Check the score board and game history
-6. **Toggle Theme**: Use the moon/sun button in top-right corner
+No server, build step, or dependencies required.
+
+**Playing:** pick a mode → (if AI) pick a difficulty → click cells to play → view results, stats, and history → toggle theme with the moon/sun button.
 
 ## 📁 File Structure
 
 ```
 tic-tac-toe/
-├── index.html      # Semantic HTML structure (400+ lines)
-├── style.css       # Advanced CSS with animations (900+ lines)
-├── script.js       # Game logic & AI algorithm (700+ lines)
-└── README.md       # This file
+├── index.html      Semantic HTML structure (400+ lines)
+├── style.css       Advanced CSS with animations (900+ lines)
+├── script.js       Game logic & AI algorithm (700+ lines)
+└── README.md
 ```
 
 ## 🧮 Code Architecture
 
-### JavaScript Organization
+<table>
+<tr>
+<td valign="top" width="50%">
 
-```
-TicTacToe Class
-├── Constructor (initialization)
-├── Initialization & Setup
-│   ├── initializeEvents()
-│   ├── initializeTheme()
-│   └── setTheme()
-├── Game Flow Control
-│   ├── selectMode()
-│   ├── selectDifficulty()
-│   ├── startGame()
-│   ├── restartGame()
-│   └── backToMenu()
-├── Cell Interaction & Game Logic
-│   ├── handleCellClick()
-│   ├── makeMove()
-│   ├── checkWinner()
-│   ├── isBoardFull()
-│   ├── endGame()
-│   └── highlightWinningCells()
-├── AI Logic - Minimax Algorithm
-│   ├── aiMove()
-│   ├── minimax() [CORE AI]
-│   ├── getBestMove()
-│   └── getRandomMove()
-├── Display & Rendering
-│   ├── renderBoard()
-│   ├── updateDisplay()
-│   ├── updateScoreDisplay()
-│   ├── renderHistory()
-│   └── showGameStatus()
-├── Utilities
-│   ├── playSound()
-│   └── showToast()
-└── Data Persistence
-    ├── saveData()
-    └── loadData()
-```
+**`TicTacToe` class**
+- Setup — `initializeEvents()`, `initializeTheme()`, `setTheme()`
+- Flow — `selectMode()`, `selectDifficulty()`, `startGame()`, `restartGame()`, `backToMenu()`
+- Logic — `handleCellClick()`, `makeMove()`, `checkWinner()`, `isBoardFull()`, `endGame()`, `highlightWinningCells()`
+- AI — `aiMove()`, `minimax()`, `getBestMove()`, `getRandomMove()`
+- Render — `renderBoard()`, `updateDisplay()`, `updateScoreDisplay()`, `renderHistory()`, `showGameStatus()`
+- Utilities — `playSound()`, `showToast()`
+- Persistence — `saveData()`, `loadData()`
 
-### CSS Architecture
+</td>
+<td valign="top" width="50%">
 
-```
-Styles (900+ lines)
-├── Root & Theme Variables (30 CSS variables)
-├── Base Styles
-├── Theme Toggle
-├── Container & Layout
-├── Mode Selection UI
-├── Game Section
-│   ├── Score Board
-│   ├── Turn Indicator
-│   ├── Game Grid & Cells
-│   ├── AI Thinking Indicator
-│   ├── Game Status Modal
-│   └── Control Buttons
-├── Game History
-├── Toast Notifications
-├── Animations (10+ keyframes)
-├── Responsive Design (mobile-first)
-└── Accessibility & Print Styles
-```
+**Stylesheet (900+ lines)**
+- Root & theme CSS variables (30 total)
+- Base styles & theme toggle
+- Layout, mode selection, and game UI
+  - Score board, turn indicator, grid & cells
+  - AI thinking indicator, result modal, controls
+- Game history & toast notifications
+- 10+ keyframe animations
+- Mobile-first responsive design
+- Accessibility & print styles
 
-## 🤖 Minimax Algorithm Explanation
+</td>
+</tr>
+</table>
 
-The hard AI uses the **Minimax algorithm**, a recursive algorithm that:
+## 🤖 How the Minimax AI Works
 
-1. **Explores**: All possible moves from the current board state
-2. **Scores**: Terminal states (win +10, loss -10, draw 0)
-3. **Maximizes** (AI's turn): Chooses move with highest score
-4. **Minimizes** (Opponent's turn): Assumes opponent makes best move
-5. **Backtracks**: Returns the best score for the current state
+Minimax recursively explores every possible game state: it **scores** terminal states (win `+10`, loss `–10`, draw `0`), **maximizes** on the AI's turn, **minimizes** on the opponent's (assuming they play optimally), then backtracks to pick the best move.
 
-### Why It's Unbeatable
-- Considers all possible future moves
-- Plays perfect defense against any opponent
-- Guarantees at least a draw (if opponent plays perfectly)
-- Optimized with depth scoring for faster decision-making
-
-### Complexity
-- **Time**: O(9!) in worst case, but optimized with pruning
-- **Space**: O(9) for recursion depth (small)
-- **Performance**: < 1 second on modern devices
+This guarantees the AI never loses — at worst it draws against a perfect opponent — while depth-based scoring keeps decisions fast (`O(9!)` worst case, optimized; under a second on modern devices).
 
 ## 📱 Responsive Design
 
-### Breakpoints
-- **Desktop** (> 640px): Full-size grid, 3-column layouts
-- **Tablet** (640px - 480px): Adjusted spacing, single-column buttons
-- **Mobile** (< 480px): Compact UI, optimized touch targets
-
-### Mobile Optimizations
-- Touch-friendly cell sizes (aspect ratio 1:1)
-- Readable font sizes (min 16px)
-- Proper spacing for thumb navigation
-- Horizontal center alignment
-- Full-width components
+| Breakpoint | Behavior |
+|---|---|
+| Desktop (>640px) | Full-size grid, 3-column layouts |
+| Tablet (480–640px) | Adjusted spacing, single-column buttons |
+| Mobile (<480px) | Compact UI, touch-optimized targets |
 
 ## 🎨 Theme System
 
-### Light Mode
-- Clean white backgrounds
-- Dark text (#1e293b)
-- Subtle borders and shadows
-- Professional appearance
+| | Light | Dark |
+|---|---|---|
+| Background | Clean white | `#0f172a` |
+| Text | `#1e293b` | `#f1f5f9` |
+| Feel | Subtle, professional | High contrast, easy on the eyes |
 
-### Dark Mode
-- Dark backgrounds (#0f172a)
-- Light text (#f1f5f9)
-- Prominent borders and shadows
-- Easy on the eyes
+**Palette:** Indigo `#6366f1` (primary) · Green `#10b981` (Player O) · Red `#ef4444` (danger) · Amber `#f59e0b` (highlights)
 
-### Color Palette
-- **Primary**: Indigo (#6366f1) - Main actions
-- **Secondary**: Green (#10b981) - Player O
-- **Danger**: Red (#ef4444) - Warnings
-- **Warning**: Amber (#f59e0b) - Highlights
+## 🔧 Browser Support
 
-## 🎬 Animations
-
-### CSS Animations (10 total)
-| Animation | Duration | Effect |
-|-----------|----------|--------|
-| slideDown | 0.6s | Header entrance |
-| scaleIn | 0.5s | Modal appearance |
-| fadeIn | 0.3s | Element fade |
-| slideInRight | 0.3s | Toast entrance |
-| slideIn | 0.3s | History items |
-| spin | 0.8s | Loading spinner |
-| pulse | 1.5s | Turn avatar |
-| winAnimation | 0.6s | Win cell animation |
-
-### Hover Effects
-- Cell elevation (4px) on hover
-- Border color change to primary
-- Shadow enhancement
-- Button transform and scale
-
-## 🔧 Browser Compatibility
-
-✅ **Tested & Working On:**
-- Chrome/Chromium (v90+)
-- Firefox (v88+)
-- Safari (v14+)
-- Edge (v90+)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-❌ **Not Supported:**
-- Internet Explorer (use modern browser instead)
-- Very old devices without ES6 support
+✅ Chrome/Chromium 90+ · Firefox 88+ · Safari 14+ · Edge 90+ · iOS Safari & Chrome Mobile
+❌ Internet Explorer, devices without ES6 support
 
 ## 📈 Performance
 
-- **Bundle Size**: ~60KB (combined, unminified)
-- **Load Time**: < 100ms
-- **Frame Rate**: 60 FPS animations
-- **AI Response**: < 1 second (Hard mode)
-- **Memory**: Minimal (~5MB including UI state)
-
-## 🎓 Learning Value
-
-### Great For Learning:
-✅ Object-oriented JavaScript (ES6 classes)
-✅ DOM manipulation and event handling
-✅ Game development concepts
-✅ AI algorithms (Minimax)
-✅ CSS animations and transitions
-✅ Responsive design patterns
-✅ Data persistence (LocalStorage)
-✅ State management
-✅ Clean code architecture
-
-### Code Quality:
-- Well-commented, especially Minimax algorithm
-- Consistent naming conventions
-- Modular structure
-- No global variables (encapsulated in class)
-- DRY principles (Don't Repeat Yourself)
-- Proper error handling
+Bundle size ~60KB unminified · load time <100ms · 60 FPS animations · AI response <1s (Hard mode) · ~5MB memory footprint.
 
 ## 🚀 Deployment
 
-### GitHub Pages
-```bash
-1. Create a GitHub repository
-2. Upload the three files
-3. Go to Settings > Pages
-4. Select "Deploy from a branch"
-5. Choose main/master branch
-6. Your game is live at: https://yourusername.github.io/repo-name
-```
+<table>
+<tr>
+<td valign="top" width="33%">
 
-### Netlify
-```bash
-1. Drag and drop the three files to Netlify
-2. Game is automatically deployed
-3. Get a live URL instantly
-```
+**GitHub Pages**
+1. Push the three files
+2. Settings → Pages
+3. Deploy from `main`
+4. Live at `yourusername.github.io/repo-name`
 
-### Traditional Hosting
-```bash
-1. Upload files via FTP
-2. Ensure all three files are in the same directory
-3. Make sure index.html is accessible
-```
+</td>
+<td valign="top" width="33%">
 
-## 🎯 Portfolio Tips
+**Netlify**
+1. Drag & drop the three files
+2. Get an instant live URL
 
-### Showcase Features
-- Open the game and highlight the responsive design
-- Show the dark/light mode toggle
-- Play against the AI in hard mode
-- Display the score tracking and history
-- Explain the Minimax algorithm
+</td>
+<td valign="top" width="33%">
 
-### Key Talking Points
-- **Vanilla JavaScript**: No frameworks or libraries
-- **Minimax Algorithm**: Game theory and AI
-- **Responsive Design**: Mobile-first approach
-- **Data Persistence**: LocalStorage integration
-- **Accessibility**: Keyboard support and semantic HTML
-- **Professional Code**: Clean, well-organized structure
+**Traditional hosting**
+1. Upload via FTP
+2. Keep files in the same directory
+3. Point to `index.html`
 
-### Expected Interview Questions
-1. **"How does your AI work?"** → Explain Minimax algorithm
-2. **"Can it be unbeatable?"** → Yes, in Hard mode
-3. **"Is it responsive?"** → Yes, tested on all devices
-4. **"How did you persist data?"** → LocalStorage
-5. **"Why no framework?"** → Demonstrate vanilla JS skills
+</td>
+</tr>
+</table>
 
-## 🐛 Known Limitations & Future Enhancements
+## 🐛 Known Limitations
 
-### Current Limitations
-- AI response is synchronous (no web workers)
-- No multiplayer/online feature (requires backend)
-- No animations can be toggled (always enabled)
-- Sound effects are placeholder (no real audio)
+- AI runs synchronously (no web workers)
+- No online multiplayer (would need a backend)
+- Animations can't be toggled off
+- Sound effects are placeholders
 
-### Future Enhancement Ideas
-```javascript
-// Possible additions:
-- Online multiplayer with WebSockets
-- Elo rating system
-- Tournament mode (best of 5)
-- Different board sizes (4x4, 5x5)
-- Statistics dashboard
-- Achievements/badges
-- PWA support (offline play)
-- Internationalization (multiple languages)
-- Sound effect library integration
-- Advanced analytics
-```
+**Future ideas:** WebSocket multiplayer · Elo ratings · tournament mode · 4×4/5×5 boards · a stats dashboard · achievements · PWA/offline support · i18n.
 
 ## 📝 License
 
-This code is provided as-is for educational and portfolio purposes. Feel free to modify and use it as needed.
+Provided as-is for educational and portfolio use — feel free to modify and reuse.
 
-## 👨‍💻 Author Notes
+## 👨‍💻 About This Project
 
-This project demonstrates:
-- **Full-stack capability**: HTML structure, CSS design, JS logic
-- **Algorithm knowledge**: Minimax for unbeatable AI
-- **Code organization**: Class-based architecture
-- **User experience**: Smooth animations and responsive design
-- **Data management**: LocalStorage and game history
-- **Professional standards**: Clean code, comments, accessibility
-
-Perfect for showing recruiters your capability to build complete, production-ready web applications!
+Built to demonstrate full front-end capability in one small app: semantic HTML, animated/responsive CSS, class-based JavaScript architecture, the Minimax algorithm, and `localStorage`-backed persistence — with no frameworks.
 
 ---
 
-**Last Updated**: April 2026
-**Version**: 1.0
-**Status**: Production Ready ✅
+<div align="center">
+
+**Version 1.0 · Status: Production Ready ✅**
 
 Enjoy the game! 🎮
+
+</div>
